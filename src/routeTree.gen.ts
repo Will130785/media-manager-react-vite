@@ -14,6 +14,22 @@ import { Route as MainRouteImport } from './routes/_main'
 import { Route as AuthLoginRouteImport } from './routes/_auth/login'
 import { Route as AuthRegisterRouteImport } from './routes/_auth/register'
 import { Route as MainIndexRouteImport } from './routes/_main/index'
+import { Route as MainBooksIndexRouteImport } from './routes/_main/books/index'
+import { Route as MainBooksCreateBookRouteImport } from './routes/_main/books/create-book'
+import { Route as MainGamesIndexRouteImport } from './routes/_main/games/index'
+import { Route as MainGamesCreateGameRouteImport } from './routes/_main/games/create-game'
+import { Route as MainMoviesIndexRouteImport } from './routes/_main/movies/index'
+import { Route as MainMoviesCreateMovieRouteImport } from './routes/_main/movies/create-movie'
+import { Route as MainMusicIndexRouteImport } from './routes/_main/music/index'
+import { Route as MainMusicCreateMusicItemRouteImport } from './routes/_main/music/create-music-item'
+import { Route as MainBooksBookIdRouteImport } from './routes/_main/books/book/$id'
+import { Route as MainBooksUpdateBookIdRouteImport } from './routes/_main/books/update-book/$id'
+import { Route as MainGamesGameIdRouteImport } from './routes/_main/games/game/$id'
+import { Route as MainGamesUpdateGameIdRouteImport } from './routes/_main/games/update-game/$id'
+import { Route as MainMoviesMovieIdRouteImport } from './routes/_main/movies/movie/$id'
+import { Route as MainMoviesUpdateMovieIdRouteImport } from './routes/_main/movies/update-movie/$id'
+import { Route as MainMusicMusicItemIdRouteImport } from './routes/_main/music/music-item/$id'
+import { Route as MainMusicUpdateMusicItemIdRouteImport } from './routes/_main/music/update-music-item/$id'
 
 const AuthRoute = AuthRouteImport.update({
   id: '/_auth',
@@ -38,16 +54,130 @@ const MainIndexRoute = MainIndexRouteImport.update({
   path: '/',
   getParentRoute: () => MainRoute,
 } as any)
+const MainBooksIndexRoute = MainBooksIndexRouteImport.update({
+  id: '/books/',
+  path: '/books/',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainBooksCreateBookRoute = MainBooksCreateBookRouteImport.update({
+  id: '/books/create-book',
+  path: '/books/create-book',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainGamesIndexRoute = MainGamesIndexRouteImport.update({
+  id: '/games/',
+  path: '/games/',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainGamesCreateGameRoute = MainGamesCreateGameRouteImport.update({
+  id: '/games/create-game',
+  path: '/games/create-game',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainMoviesIndexRoute = MainMoviesIndexRouteImport.update({
+  id: '/movies/',
+  path: '/movies/',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainMoviesCreateMovieRoute = MainMoviesCreateMovieRouteImport.update({
+  id: '/movies/create-movie',
+  path: '/movies/create-movie',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainMusicIndexRoute = MainMusicIndexRouteImport.update({
+  id: '/music/',
+  path: '/music/',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainMusicCreateMusicItemRoute =
+  MainMusicCreateMusicItemRouteImport.update({
+    id: '/music/create-music-item',
+    path: '/music/create-music-item',
+    getParentRoute: () => MainRoute,
+  } as any)
+const MainBooksBookIdRoute = MainBooksBookIdRouteImport.update({
+  id: '/books/book/$id',
+  path: '/books/book/$id',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainBooksUpdateBookIdRoute = MainBooksUpdateBookIdRouteImport.update({
+  id: '/books/update-book/$id',
+  path: '/books/update-book/$id',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainGamesGameIdRoute = MainGamesGameIdRouteImport.update({
+  id: '/games/game/$id',
+  path: '/games/game/$id',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainGamesUpdateGameIdRoute = MainGamesUpdateGameIdRouteImport.update({
+  id: '/games/update-game/$id',
+  path: '/games/update-game/$id',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainMoviesMovieIdRoute = MainMoviesMovieIdRouteImport.update({
+  id: '/movies/movie/$id',
+  path: '/movies/movie/$id',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainMoviesUpdateMovieIdRoute = MainMoviesUpdateMovieIdRouteImport.update({
+  id: '/movies/update-movie/$id',
+  path: '/movies/update-movie/$id',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainMusicMusicItemIdRoute = MainMusicMusicItemIdRouteImport.update({
+  id: '/music/music-item/$id',
+  path: '/music/music-item/$id',
+  getParentRoute: () => MainRoute,
+} as any)
+const MainMusicUpdateMusicItemIdRoute =
+  MainMusicUpdateMusicItemIdRouteImport.update({
+    id: '/music/update-music-item/$id',
+    path: '/music/update-music-item/$id',
+    getParentRoute: () => MainRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof MainIndexRoute
   '/login': typeof AuthLoginRoute
   '/register': typeof AuthRegisterRoute
+  '/books/create-book': typeof MainBooksCreateBookRoute
+  '/games/create-game': typeof MainGamesCreateGameRoute
+  '/movies/create-movie': typeof MainMoviesCreateMovieRoute
+  '/music/create-music-item': typeof MainMusicCreateMusicItemRoute
+  '/books/': typeof MainBooksIndexRoute
+  '/games/': typeof MainGamesIndexRoute
+  '/movies/': typeof MainMoviesIndexRoute
+  '/music/': typeof MainMusicIndexRoute
+  '/books/book/$id': typeof MainBooksBookIdRoute
+  '/books/update-book/$id': typeof MainBooksUpdateBookIdRoute
+  '/games/game/$id': typeof MainGamesGameIdRoute
+  '/games/update-game/$id': typeof MainGamesUpdateGameIdRoute
+  '/movies/movie/$id': typeof MainMoviesMovieIdRoute
+  '/movies/update-movie/$id': typeof MainMoviesUpdateMovieIdRoute
+  '/music/music-item/$id': typeof MainMusicMusicItemIdRoute
+  '/music/update-music-item/$id': typeof MainMusicUpdateMusicItemIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof MainIndexRoute
   '/login': typeof AuthLoginRoute
   '/register': typeof AuthRegisterRoute
+  '/books/create-book': typeof MainBooksCreateBookRoute
+  '/games/create-game': typeof MainGamesCreateGameRoute
+  '/movies/create-movie': typeof MainMoviesCreateMovieRoute
+  '/music/create-music-item': typeof MainMusicCreateMusicItemRoute
+  '/books': typeof MainBooksIndexRoute
+  '/games': typeof MainGamesIndexRoute
+  '/movies': typeof MainMoviesIndexRoute
+  '/music': typeof MainMusicIndexRoute
+  '/books/book/$id': typeof MainBooksBookIdRoute
+  '/books/update-book/$id': typeof MainBooksUpdateBookIdRoute
+  '/games/game/$id': typeof MainGamesGameIdRoute
+  '/games/update-game/$id': typeof MainGamesUpdateGameIdRoute
+  '/movies/movie/$id': typeof MainMoviesMovieIdRoute
+  '/movies/update-movie/$id': typeof MainMoviesUpdateMovieIdRoute
+  '/music/music-item/$id': typeof MainMusicMusicItemIdRoute
+  '/music/update-music-item/$id': typeof MainMusicUpdateMusicItemIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -56,12 +186,66 @@ export interface FileRoutesById {
   '/_auth/login': typeof AuthLoginRoute
   '/_auth/register': typeof AuthRegisterRoute
   '/_main/': typeof MainIndexRoute
+  '/_main/books/create-book': typeof MainBooksCreateBookRoute
+  '/_main/games/create-game': typeof MainGamesCreateGameRoute
+  '/_main/movies/create-movie': typeof MainMoviesCreateMovieRoute
+  '/_main/music/create-music-item': typeof MainMusicCreateMusicItemRoute
+  '/_main/books/': typeof MainBooksIndexRoute
+  '/_main/games/': typeof MainGamesIndexRoute
+  '/_main/movies/': typeof MainMoviesIndexRoute
+  '/_main/music/': typeof MainMusicIndexRoute
+  '/_main/books/book/$id': typeof MainBooksBookIdRoute
+  '/_main/books/update-book/$id': typeof MainBooksUpdateBookIdRoute
+  '/_main/games/game/$id': typeof MainGamesGameIdRoute
+  '/_main/games/update-game/$id': typeof MainGamesUpdateGameIdRoute
+  '/_main/movies/movie/$id': typeof MainMoviesMovieIdRoute
+  '/_main/movies/update-movie/$id': typeof MainMoviesUpdateMovieIdRoute
+  '/_main/music/music-item/$id': typeof MainMusicMusicItemIdRoute
+  '/_main/music/update-music-item/$id': typeof MainMusicUpdateMusicItemIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/login' | '/register'
+  fullPaths:
+    | '/'
+    | '/login'
+    | '/register'
+    | '/books/create-book'
+    | '/games/create-game'
+    | '/movies/create-movie'
+    | '/music/create-music-item'
+    | '/books/'
+    | '/games/'
+    | '/movies/'
+    | '/music/'
+    | '/books/book/$id'
+    | '/books/update-book/$id'
+    | '/games/game/$id'
+    | '/games/update-game/$id'
+    | '/movies/movie/$id'
+    | '/movies/update-movie/$id'
+    | '/music/music-item/$id'
+    | '/music/update-music-item/$id'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/login' | '/register'
+  to:
+    | '/'
+    | '/login'
+    | '/register'
+    | '/books/create-book'
+    | '/games/create-game'
+    | '/movies/create-movie'
+    | '/music/create-music-item'
+    | '/books'
+    | '/games'
+    | '/movies'
+    | '/music'
+    | '/books/book/$id'
+    | '/books/update-book/$id'
+    | '/games/game/$id'
+    | '/games/update-game/$id'
+    | '/movies/movie/$id'
+    | '/movies/update-movie/$id'
+    | '/music/music-item/$id'
+    | '/music/update-music-item/$id'
   id:
     | '__root__'
     | '/_auth'
@@ -69,6 +253,22 @@ export interface FileRouteTypes {
     | '/_auth/login'
     | '/_auth/register'
     | '/_main/'
+    | '/_main/books/create-book'
+    | '/_main/games/create-game'
+    | '/_main/movies/create-movie'
+    | '/_main/music/create-music-item'
+    | '/_main/books/'
+    | '/_main/games/'
+    | '/_main/movies/'
+    | '/_main/music/'
+    | '/_main/books/book/$id'
+    | '/_main/books/update-book/$id'
+    | '/_main/games/game/$id'
+    | '/_main/games/update-game/$id'
+    | '/_main/movies/movie/$id'
+    | '/_main/movies/update-movie/$id'
+    | '/_main/music/music-item/$id'
+    | '/_main/music/update-music-item/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -113,6 +313,118 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof MainIndexRouteImport
       parentRoute: typeof MainRoute
     }
+    '/_main/books/': {
+      id: '/_main/books/'
+      path: '/books'
+      fullPath: '/books/'
+      preLoaderRoute: typeof MainBooksIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/books/create-book': {
+      id: '/_main/books/create-book'
+      path: '/books/create-book'
+      fullPath: '/books/create-book'
+      preLoaderRoute: typeof MainBooksCreateBookRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/games/': {
+      id: '/_main/games/'
+      path: '/games'
+      fullPath: '/games/'
+      preLoaderRoute: typeof MainGamesIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/games/create-game': {
+      id: '/_main/games/create-game'
+      path: '/games/create-game'
+      fullPath: '/games/create-game'
+      preLoaderRoute: typeof MainGamesCreateGameRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/movies/': {
+      id: '/_main/movies/'
+      path: '/movies'
+      fullPath: '/movies/'
+      preLoaderRoute: typeof MainMoviesIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/movies/create-movie': {
+      id: '/_main/movies/create-movie'
+      path: '/movies/create-movie'
+      fullPath: '/movies/create-movie'
+      preLoaderRoute: typeof MainMoviesCreateMovieRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/music/': {
+      id: '/_main/music/'
+      path: '/music'
+      fullPath: '/music/'
+      preLoaderRoute: typeof MainMusicIndexRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/music/create-music-item': {
+      id: '/_main/music/create-music-item'
+      path: '/music/create-music-item'
+      fullPath: '/music/create-music-item'
+      preLoaderRoute: typeof MainMusicCreateMusicItemRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/books/book/$id': {
+      id: '/_main/books/book/$id'
+      path: '/books/book/$id'
+      fullPath: '/books/book/$id'
+      preLoaderRoute: typeof MainBooksBookIdRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/books/update-book/$id': {
+      id: '/_main/books/update-book/$id'
+      path: '/books/update-book/$id'
+      fullPath: '/books/update-book/$id'
+      preLoaderRoute: typeof MainBooksUpdateBookIdRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/games/game/$id': {
+      id: '/_main/games/game/$id'
+      path: '/games/game/$id'
+      fullPath: '/games/game/$id'
+      preLoaderRoute: typeof MainGamesGameIdRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/games/update-game/$id': {
+      id: '/_main/games/update-game/$id'
+      path: '/games/update-game/$id'
+      fullPath: '/games/update-game/$id'
+      preLoaderRoute: typeof MainGamesUpdateGameIdRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/movies/movie/$id': {
+      id: '/_main/movies/movie/$id'
+      path: '/movies/movie/$id'
+      fullPath: '/movies/movie/$id'
+      preLoaderRoute: typeof MainMoviesMovieIdRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/movies/update-movie/$id': {
+      id: '/_main/movies/update-movie/$id'
+      path: '/movies/update-movie/$id'
+      fullPath: '/movies/update-movie/$id'
+      preLoaderRoute: typeof MainMoviesUpdateMovieIdRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/music/music-item/$id': {
+      id: '/_main/music/music-item/$id'
+      path: '/music/music-item/$id'
+      fullPath: '/music/music-item/$id'
+      preLoaderRoute: typeof MainMusicMusicItemIdRouteImport
+      parentRoute: typeof MainRoute
+    }
+    '/_main/music/update-music-item/$id': {
+      id: '/_main/music/update-music-item/$id'
+      path: '/music/update-music-item/$id'
+      fullPath: '/music/update-music-item/$id'
+      preLoaderRoute: typeof MainMusicUpdateMusicItemIdRouteImport
+      parentRoute: typeof MainRoute
+    }
   }
 }
 
@@ -130,10 +442,42 @@ const AuthRouteWithChildren = AuthRoute._addFileChildren(AuthRouteChildren)
 
 interface MainRouteChildren {
   MainIndexRoute: typeof MainIndexRoute
+  MainBooksCreateBookRoute: typeof MainBooksCreateBookRoute
+  MainGamesCreateGameRoute: typeof MainGamesCreateGameRoute
+  MainMoviesCreateMovieRoute: typeof MainMoviesCreateMovieRoute
+  MainMusicCreateMusicItemRoute: typeof MainMusicCreateMusicItemRoute
+  MainBooksIndexRoute: typeof MainBooksIndexRoute
+  MainGamesIndexRoute: typeof MainGamesIndexRoute
+  MainMoviesIndexRoute: typeof MainMoviesIndexRoute
+  MainMusicIndexRoute: typeof MainMusicIndexRoute
+  MainBooksBookIdRoute: typeof MainBooksBookIdRoute
+  MainBooksUpdateBookIdRoute: typeof MainBooksUpdateBookIdRoute
+  MainGamesGameIdRoute: typeof MainGamesGameIdRoute
+  MainGamesUpdateGameIdRoute: typeof MainGamesUpdateGameIdRoute
+  MainMoviesMovieIdRoute: typeof MainMoviesMovieIdRoute
+  MainMoviesUpdateMovieIdRoute: typeof MainMoviesUpdateMovieIdRoute
+  MainMusicMusicItemIdRoute: typeof MainMusicMusicItemIdRoute
+  MainMusicUpdateMusicItemIdRoute: typeof MainMusicUpdateMusicItemIdRoute
 }
 
 const MainRouteChildren: MainRouteChildren = {
   MainIndexRoute: MainIndexRoute,
+  MainBooksCreateBookRoute: MainBooksCreateBookRoute,
+  MainGamesCreateGameRoute: MainGamesCreateGameRoute,
+  MainMoviesCreateMovieRoute: MainMoviesCreateMovieRoute,
+  MainMusicCreateMusicItemRoute: MainMusicCreateMusicItemRoute,
+  MainBooksIndexRoute: MainBooksIndexRoute,
+  MainGamesIndexRoute: MainGamesIndexRoute,
+  MainMoviesIndexRoute: MainMoviesIndexRoute,
+  MainMusicIndexRoute: MainMusicIndexRoute,
+  MainBooksBookIdRoute: MainBooksBookIdRoute,
+  MainBooksUpdateBookIdRoute: MainBooksUpdateBookIdRoute,
+  MainGamesGameIdRoute: MainGamesGameIdRoute,
+  MainGamesUpdateGameIdRoute: MainGamesUpdateGameIdRoute,
+  MainMoviesMovieIdRoute: MainMoviesMovieIdRoute,
+  MainMoviesUpdateMovieIdRoute: MainMoviesUpdateMovieIdRoute,
+  MainMusicMusicItemIdRoute: MainMusicMusicItemIdRoute,
+  MainMusicUpdateMusicItemIdRoute: MainMusicUpdateMusicItemIdRoute,
 }
 
 const MainRouteWithChildren = MainRoute._addFileChildren(MainRouteChildren)

@@ -5,7 +5,7 @@ interface IHeadingProps {
   children: ReactNode
 }
 
-const Paragraph = ({ type, children }: IHeadingProps) => {
+const Heading = ({ type, children }: IHeadingProps) => {
   if (type === 'h1') {
     return <h1>{children}</h1>
   }
@@ -26,4 +26,4 @@ const Paragraph = ({ type, children }: IHeadingProps) => {
   }
 }
 
-export default Paragraph
+export default Heading
