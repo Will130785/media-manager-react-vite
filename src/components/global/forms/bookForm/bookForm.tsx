@@ -4,7 +4,12 @@ import Button from '../../../global/buttons/button'
 import DateInput from '../../inputs/dateInput'
 import type { IBook } from '../../../../types'
 
-const BookForm = (bookData?: IBook, id?: string) => {
+interface IBookFormProps {
+  bookData?: IBook
+  id?: string
+}
+
+const BookForm = ({ bookData, id }: IBookFormProps) => {
   const { bookForm } = useBookForm(bookData, id)
   return (
     <form

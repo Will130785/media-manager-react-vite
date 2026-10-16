@@ -1,9 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
+import CreateMovie from '../../../components/pages/main/movies/createMovie/createMovie'
 
 export const Route = createFileRoute('/_main/movies/create-movie')({
-  component: RouteComponent,
+  component: CreateMovie,
 })
-
-function RouteComponent() {
-  return <div>Hello "/_main/movies/create-movie"!</div>
-}

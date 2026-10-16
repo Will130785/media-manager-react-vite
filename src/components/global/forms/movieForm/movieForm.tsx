@@ -4,7 +4,12 @@ import Button from '../../../global/buttons/button'
 import DateInput from '../../inputs/dateInput'
 import type { IMovie } from '../../../../types'
 
-const MovieForm = (movieData?: IMovie, id?: string) => {
+interface IMovieFormProps {
+  movieData?: IMovie
+  id?: string
+}
+
+const MovieForm = ({ movieData, id }: IMovieFormProps) => {
   const { movieForm } = useMovieForm(movieData, id)
   return (
     <form

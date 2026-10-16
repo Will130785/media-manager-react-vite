@@ -4,7 +4,12 @@ import Button from '../../../global/buttons/button'
 import DateInput from '../../inputs/dateInput'
 import type { IGame } from '../../../../types'
 
-const GameForm = (gameData?: IGame, id?: string) => {
+interface IGameFormProps {
+  gameData?: IGame
+  id?: string
+}
+
+const GameForm = ({ gameData, id }: IGameFormProps) => {
   const { gameForm } = useGameForm(gameData, id)
   return (
     <form

@@ -1,9 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
+import CreateBook from '../../../components/pages/main/books/createBook/createBook'
 
 export const Route = createFileRoute('/_main/books/create-book')({
-  component: RouteComponent,
+  component: CreateBook,
 })
-
-function RouteComponent() {
-  return <div>Hello "/_main/books/create-book"!</div>
-}

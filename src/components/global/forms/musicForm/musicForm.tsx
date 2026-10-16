@@ -2,9 +2,14 @@ import TextInput from '../../../global/inputs/textInput'
 import { useMusicForm } from './useMusicForm'
 import Button from '../../../global/buttons/button'
 import DateInput from '../../inputs/dateInput'
-import type { IMovie, IMusic } from '../../../../types'
+import type { IMusic } from '../../../../types'
 
-const MusicForm = (musicData?: IMusic, id?: string) => {
+interface IMusicFormProps {
+  musicData?: IMusic
+  id?: string
+}
+
+const MusicForm = ({ musicData, id }: IMusicFormProps) => {
   const { musicForm } = useMusicForm(musicData, id)
   return (
     <form
