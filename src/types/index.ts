@@ -31,10 +31,10 @@ export interface IMusic {
   artist: string
   title: string
   type: string
-  dateOfRelease: Date
+  dateOfRelease: string
   barcode: string
-  createdAt: Date
-  updatedAt: Date
+  createdAt: string
+  updatedAt: string
   userId: string
 }
 
@@ -43,10 +43,10 @@ export interface IMovie {
   director: string
   title: string
   type: string
-  dateOfRelease: Date
+  dateOfRelease: string
   barcode: string
-  createdAt: Date
-  updatedAt: Date
+  createdAt: string
+  updatedAt: string
   userId: string
 }
 
@@ -55,10 +55,10 @@ export interface IGame {
   developer: string
   title: string
   platform: string
-  dateOfRelease: Date
+  dateOfRelease: string
   barcode: string
-  createdAt: Date
-  updatedAt: Date
+  createdAt: string
+  updatedAt: string
   userId: string
 }
 
@@ -66,9 +66,9 @@ export interface IBook {
   id: string
   author: string
   title: string
-  dateOfRelease: Date
+  dateOfRelease: string
   barcode: string
-  createdAt: Date
-  updatedAt: Date
+  createdAt: string
+  updatedAt: string
   userId: string
 }

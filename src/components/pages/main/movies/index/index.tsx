@@ -1,6 +1,8 @@
+import { Link } from '@tanstack/react-router'
 import ErrorText from '../../../../global/alerts/errorText'
 import LoadingText from '../../../../global/alerts/loadingText'
 import Paragraph from '../../../../global/text/paragraph'
+import Heading from '../../../../global/text/heading'
 import { useMovies } from './useMovies'
 
 const Index = () => {
@@ -16,11 +18,27 @@ const Index = () => {
 
   return (
     <div>
-      {data && data.length ? (
-        data.map((movie) => <Paragraph key={movie.id}>{movie.title}</Paragraph>)
-      ) : (
-        <Paragraph>No Movies</Paragraph>
-      )}
+      <div>
+        <Heading type="h1">Movie Library</Heading>
+      </div>
+      <div>
+        <Link to={'/movies/create-movie'}>Add</Link>
+      </div>
+      <div className="flex flex-col">
+        {data && data.length ? (
+          data.map((movie) => (
+            <Link
+              key={movie.id}
+              to={'/movies/movie/$id'}
+              params={{ id: movie.id }}
+            >
+              {movie.title}
+            </Link>
+          ))
+        ) : (
+          <Paragraph>No Movies</Paragraph>
+        )}
+      </div>
     </div>
   )
 }

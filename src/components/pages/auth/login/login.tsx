@@ -31,6 +31,7 @@ const Login = () => {
                 value={field.state.value ?? ''}
                 id="email"
                 name="email"
+                placeholder="Email"
                 onChangeHandler={(e) => field.handleChange(e.target.value)}
               />
             </div>
@@ -48,6 +49,7 @@ const Login = () => {
                 value={field.state.value ?? ''}
                 id="password"
                 name="password"
+                placeholder="Password"
                 onChangeHandler={(e) => field.handleChange(e.target.value)}
               />
             </div>

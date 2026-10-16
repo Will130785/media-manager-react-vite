@@ -3,6 +3,7 @@ import { useMusicForm } from './useMusicForm'
 import Button from '../../../global/buttons/button'
 import DateInput from '../../inputs/dateInput'
 import type { IMusic } from '../../../../types'
+import Paragraph from '../../text/paragraph'
 
 interface IMusicFormProps {
   musicData?: IMusic
@@ -30,6 +31,7 @@ const MusicForm = ({ musicData, id }: IMusicFormProps) => {
               value={field.state.value ?? ''}
               id="artist"
               name="artist"
+              placeholder="Artist"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
           </div>
@@ -46,6 +48,7 @@ const MusicForm = ({ musicData, id }: IMusicFormProps) => {
               value={field.state.value ?? ''}
               id="title"
               name="title"
+              placeholder="Title"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
           </div>
@@ -62,6 +65,7 @@ const MusicForm = ({ musicData, id }: IMusicFormProps) => {
               value={field.state.value ?? ''}
               id="type"
               name="type"
+              placeholder="Type"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
           </div>
@@ -76,13 +80,12 @@ const MusicForm = ({ musicData, id }: IMusicFormProps) => {
         children={(field) => (
           <div>
             <DateInput
-              value={''}
+              value={field.state.value ?? ''}
               id="dateOfRelease"
               name="dateOfRelease"
-              onChangeHandler={(e) =>
-                field.handleChange(new Date(e.target.value))
-              }
+              onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
+            <Paragraph>Date of Release</Paragraph>
           </div>
         )}
       />
@@ -97,6 +100,7 @@ const MusicForm = ({ musicData, id }: IMusicFormProps) => {
               value={field.state.value ?? ''}
               id="barcode"
               name="barcode"
+              placeholder="Barcode"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
           </div>

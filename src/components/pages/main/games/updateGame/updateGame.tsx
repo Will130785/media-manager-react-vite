@@ -3,9 +3,11 @@ import LoadingText from '../../../../global/alerts/loadingText'
 import Heading from '../../../../global/text/heading'
 import { useGame } from '../game/useGame'
 import GameForm from '../../../../global/forms/gameForm/gameForm'
+import { useParams } from '@tanstack/react-router'
 
 const UpdateGame = () => {
-  const { data, isLoading, isError, id } = useGame()
+  const { id } = useParams({ from: '/_main/games/update-game/$id' })
+  const { data, isLoading, isError } = useGame(id)
 
   if (isLoading) {
     return <LoadingText />

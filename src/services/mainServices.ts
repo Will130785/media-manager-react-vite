@@ -4,10 +4,12 @@ import type {
   MoviePayload,
   MusicPayload,
 } from '../types'
+const { VITE_API_BASE } = import.meta.env
 
 export const getMusicByUser = async () => {
-  const res = await fetch('/get-music-by-user', {
+  const res = await fetch(`${VITE_API_BASE}/get-music-by-user`, {
     method: 'GET',
+    credentials: 'include',
   })
 
   if (!res.ok) {
@@ -18,7 +20,7 @@ export const getMusicByUser = async () => {
 }
 
 export const getMusicItem = async (id: string) => {
-  const res = await fetch(`/get-music-item/${id}`, {
+  const res = await fetch(`${VITE_API_BASE}/get-music-item/${id}`, {
     method: 'GET',
     credentials: 'include',
   })
@@ -31,7 +33,7 @@ export const getMusicItem = async (id: string) => {
 }
 
 export const createMusicItem = async (musicPayload: MusicPayload) => {
-  const res = await fetch('/create-music-item', {
+  const res = await fetch(`${VITE_API_BASE}/create-music-item`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -51,7 +53,7 @@ export const updateMusicItem = async (
   musicPayload: MusicPayload,
   id: string,
 ) => {
-  const res = await fetch(`/update-music-item/${id}`, {
+  const res = await fetch(`${VITE_API_BASE}/update-music-item/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -67,8 +69,8 @@ export const updateMusicItem = async (
   return parsedRes
 }
 
-export const deleteMusicItem = async () => {
-  const res = await fetch('/delete-music-item', {
+export const deleteMusicItem = async (id: string) => {
+  const res = await fetch(`${VITE_API_BASE}/delete-music-item/${id}`, {
     method: 'DELETE',
     credentials: 'include',
   })
@@ -81,8 +83,9 @@ export const deleteMusicItem = async () => {
 }
 
 export const getMoviesByUser = async () => {
-  const res = await fetch('/get-movies-by-user', {
+  const res = await fetch(`${VITE_API_BASE}/get-movies-by-user`, {
     method: 'GET',
+    credentials: 'include',
   })
 
   if (!res.ok) {
@@ -93,7 +96,7 @@ export const getMoviesByUser = async () => {
 }
 
 export const getMovieItem = async (id: string) => {
-  const res = await fetch(`/get-movie-item/${id}`, {
+  const res = await fetch(`${VITE_API_BASE}/get-movie-item/${id}`, {
     method: 'GET',
     credentials: 'include',
   })
@@ -106,7 +109,7 @@ export const getMovieItem = async (id: string) => {
 }
 
 export const createMovieItem = async (moviePayload: MoviePayload) => {
-  const res = await fetch('/create-movie-item', {
+  const res = await fetch(`${VITE_API_BASE}/create-movie-item`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -126,7 +129,7 @@ export const updateMovieItem = async (
   moviePayload: MoviePayload,
   id: string,
 ) => {
-  const res = await fetch(`/update-movie-item/${id}`, {
+  const res = await fetch(`${VITE_API_BASE}/update-movie-item/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -142,8 +145,8 @@ export const updateMovieItem = async (
   return parsedRes
 }
 
-export const deleteMovieItem = async () => {
-  const res = await fetch('/delete-movie-item', {
+export const deleteMovieItem = async (id: string) => {
+  const res = await fetch(`${VITE_API_BASE}/delete-movie-item/${id}`, {
     method: 'DELETE',
     credentials: 'include',
   })
@@ -156,8 +159,9 @@ export const deleteMovieItem = async () => {
 }
 
 export const getGamesByUser = async () => {
-  const res = await fetch('/get-games-by-user', {
+  const res = await fetch(`${VITE_API_BASE}/get-games-by-user`, {
     method: 'GET',
+    credentials: 'include',
   })
 
   if (!res.ok) {
@@ -168,7 +172,7 @@ export const getGamesByUser = async () => {
 }
 
 export const getGameItem = async (id: string) => {
-  const res = await fetch(`/get-game-item/${id}`, {
+  const res = await fetch(`${VITE_API_BASE}/get-game-item/${id}`, {
     method: 'GET',
     credentials: 'include',
   })
@@ -181,7 +185,7 @@ export const getGameItem = async (id: string) => {
 }
 
 export const createGameItem = async (gamePayload: GamePayload) => {
-  const res = await fetch('/create-game-item', {
+  const res = await fetch(`${VITE_API_BASE}/create-game-item`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -198,7 +202,7 @@ export const createGameItem = async (gamePayload: GamePayload) => {
 }
 
 export const updateGameItem = async (gamePayload: GamePayload, id: string) => {
-  const res = await fetch(`/update-game-item/${id}`, {
+  const res = await fetch(`${VITE_API_BASE}/update-game-item/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -214,8 +218,8 @@ export const updateGameItem = async (gamePayload: GamePayload, id: string) => {
   return parsedRes
 }
 
-export const deleteGameItem = async () => {
-  const res = await fetch('/delete-game-item', {
+export const deleteGameItem = async (id: string) => {
+  const res = await fetch(`${VITE_API_BASE}/delete-game-item/${id}`, {
     method: 'DELETE',
     credentials: 'include',
   })
@@ -228,8 +232,9 @@ export const deleteGameItem = async () => {
 }
 
 export const getBooksByUser = async () => {
-  const res = await fetch('/get-books-by-user', {
+  const res = await fetch(`${VITE_API_BASE}/get-books-by-user`, {
     method: 'GET',
+    credentials: 'include',
   })
 
   if (!res.ok) {
@@ -240,7 +245,7 @@ export const getBooksByUser = async () => {
 }
 
 export const getBookItem = async (id: string) => {
-  const res = await fetch(`/get-book-item/${id}`, {
+  const res = await fetch(`${VITE_API_BASE}/get-book-item/${id}`, {
     method: 'GET',
     credentials: 'include',
   })
@@ -253,7 +258,7 @@ export const getBookItem = async (id: string) => {
 }
 
 export const createBookItem = async (bookPayload: BookPayload) => {
-  const res = await fetch('/create-book-item', {
+  const res = await fetch(`${VITE_API_BASE}/create-book-item`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -270,7 +275,7 @@ export const createBookItem = async (bookPayload: BookPayload) => {
 }
 
 export const updateBookItem = async (bookPayload: BookPayload, id: string) => {
-  const res = await fetch(`/update-book-item/${id}`, {
+  const res = await fetch(`${VITE_API_BASE}/update-book-item/${id}`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -286,8 +291,8 @@ export const updateBookItem = async (bookPayload: BookPayload, id: string) => {
   return parsedRes
 }
 
-export const deleteBookItem = async () => {
-  const res = await fetch('/delete-book-item', {
+export const deleteBookItem = async (id: string) => {
+  const res = await fetch(`${VITE_API_BASE}/delete-book-item/${id}`, {
     method: 'DELETE',
     credentials: 'include',
   })

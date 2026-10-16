@@ -3,6 +3,7 @@ import { useMovieForm } from './useMovieForm'
 import Button from '../../../global/buttons/button'
 import DateInput from '../../inputs/dateInput'
 import type { IMovie } from '../../../../types'
+import Paragraph from '../../text/paragraph'
 
 interface IMovieFormProps {
   movieData?: IMovie
@@ -31,6 +32,7 @@ const MovieForm = ({ movieData, id }: IMovieFormProps) => {
               value={field.state.value ?? ''}
               id="director"
               name="director"
+              placeholder="Director"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
           </div>
@@ -47,6 +49,7 @@ const MovieForm = ({ movieData, id }: IMovieFormProps) => {
               value={field.state.value ?? ''}
               id="title"
               name="title"
+              placeholder="Title"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
           </div>
@@ -63,6 +66,7 @@ const MovieForm = ({ movieData, id }: IMovieFormProps) => {
               value={field.state.value ?? ''}
               id="type"
               name="type"
+              placeholder="Type"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
           </div>
@@ -77,13 +81,12 @@ const MovieForm = ({ movieData, id }: IMovieFormProps) => {
         children={(field) => (
           <div>
             <DateInput
-              value={''}
+              value={field.state.value ?? ''}
               id="dateOfRelease"
               name="dateOfRelease"
-              onChangeHandler={(e) =>
-                field.handleChange(new Date(e.target.value))
-              }
+              onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
+            <Paragraph>Date of Release</Paragraph>
           </div>
         )}
       />
@@ -98,6 +101,7 @@ const MovieForm = ({ movieData, id }: IMovieFormProps) => {
               value={field.state.value ?? ''}
               id="barcode"
               name="barcode"
+              placeholder="Barcode"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
           </div>

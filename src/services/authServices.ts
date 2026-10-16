@@ -1,7 +1,8 @@
 import type { UserLoginPayload, UserRegisterPayload } from '../types'
+const { VITE_API_BASE } = import.meta.env
 
 export const loginUser = async (loginUserPayload: UserLoginPayload) => {
-  const res = await fetch('/login-user', {
+  const res = await fetch(`${VITE_API_BASE}/login-user`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -20,7 +21,7 @@ export const loginUser = async (loginUserPayload: UserLoginPayload) => {
 export const registerUser = async (
   registerUserPayload: UserRegisterPayload,
 ) => {
-  const res = await fetch('/register-user', {
+  const res = await fetch(`${VITE_API_BASE}/register-user`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -37,7 +38,7 @@ export const registerUser = async (
 }
 
 export const validateUserSession = async () => {
-  const res = await fetch('/validate-user-session', {
+  const res = await fetch(`${VITE_API_BASE}/validate-user-session`, {
     credentials: 'include',
   })
 
@@ -50,7 +51,7 @@ export const validateUserSession = async () => {
 }
 
 export const logoutUser = async () => {
-  const res = await fetch('logout-user', {
+  const res = await fetch(`${VITE_API_BASE}/logout-user`, {
     method: 'DELETE',
     credentials: 'include',
   })

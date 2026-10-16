@@ -3,6 +3,7 @@ import { useGameForm } from './useGameForm'
 import Button from '../../../global/buttons/button'
 import DateInput from '../../inputs/dateInput'
 import type { IGame } from '../../../../types'
+import Paragraph from '../../text/paragraph'
 
 interface IGameFormProps {
   gameData?: IGame
@@ -31,6 +32,7 @@ const GameForm = ({ gameData, id }: IGameFormProps) => {
               value={field.state.value ?? ''}
               id="developer"
               name="developer"
+              placeholder="Developer"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
           </div>
@@ -47,6 +49,7 @@ const GameForm = ({ gameData, id }: IGameFormProps) => {
               value={field.state.value ?? ''}
               id="title"
               name="title"
+              placeholder="Title"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
           </div>
@@ -64,6 +67,7 @@ const GameForm = ({ gameData, id }: IGameFormProps) => {
               value={field.state.value ?? ''}
               id="platform"
               name="platform"
+              placeholder="Platform"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
           </div>
@@ -78,13 +82,12 @@ const GameForm = ({ gameData, id }: IGameFormProps) => {
         children={(field) => (
           <div>
             <DateInput
-              value={''}
+              value={field.state.value ?? ''}
               id="dateOfRelease"
               name="dateOfRelease"
-              onChangeHandler={(e) =>
-                field.handleChange(new Date(e.target.value))
-              }
+              onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
+            <Paragraph>Date of Release</Paragraph>
           </div>
         )}
       />
@@ -99,6 +102,7 @@ const GameForm = ({ gameData, id }: IGameFormProps) => {
               value={field.state.value ?? ''}
               id="barcode"
               name="barcode"
+              placeholder="Barcode"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
           </div>

@@ -33,6 +33,7 @@ const Register = () => {
                 value={field.state.value ?? ''}
                 id="firstName"
                 name="firstName"
+                placeholder="First Name"
                 onChangeHandler={(e) => field.handleChange(e.target.value)}
               />
             </div>
@@ -50,6 +51,7 @@ const Register = () => {
                 value={field.state.value ?? ''}
                 id="lastName"
                 name="lastName"
+                placeholder="Last Name"
                 onChangeHandler={(e) => field.handleChange(e.target.value)}
               />
             </div>
@@ -66,6 +68,7 @@ const Register = () => {
                 value={field.state.value ?? ''}
                 id="email"
                 name="email"
+                placeholder="Email"
                 onChangeHandler={(e) => field.handleChange(e.target.value)}
               />
             </div>
@@ -83,6 +86,7 @@ const Register = () => {
                 value={field.state.value ?? ''}
                 id="password"
                 name="password"
+                placeholder="Password (Min 12 Characters)"
                 onChangeHandler={(e) => field.handleChange(e.target.value)}
               />
             </div>
@@ -100,6 +104,7 @@ const Register = () => {
                 value={field.state.value ?? ''}
                 id="passwordConfirm"
                 name="passwordConfirm"
+                placeholder="Confirm Password"
                 onChangeHandler={(e) => field.handleChange(e.target.value)}
               />
             </div>

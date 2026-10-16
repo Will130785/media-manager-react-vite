@@ -3,6 +3,7 @@ import { useBookForm } from './useBookForm'
 import Button from '../../../global/buttons/button'
 import DateInput from '../../inputs/dateInput'
 import type { IBook } from '../../../../types'
+import Paragraph from '../../text/paragraph'
 
 interface IBookFormProps {
   bookData?: IBook
@@ -30,6 +31,7 @@ const BookForm = ({ bookData, id }: IBookFormProps) => {
               value={field.state.value ?? ''}
               id="author"
               name="author"
+              placeholder="Author"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
           </div>
@@ -46,6 +48,7 @@ const BookForm = ({ bookData, id }: IBookFormProps) => {
               value={field.state.value ?? ''}
               id="title"
               name="title"
+              placeholder="Title"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
           </div>
@@ -63,10 +66,9 @@ const BookForm = ({ bookData, id }: IBookFormProps) => {
               value={''}
               id="dateOfRelease"
               name="dateOfRelease"
-              onChangeHandler={(e) =>
-                field.handleChange(new Date(e.target.value))
-              }
+              onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
+            <Paragraph>Date of Release</Paragraph>
           </div>
         )}
       />
@@ -81,6 +83,7 @@ const BookForm = ({ bookData, id }: IBookFormProps) => {
               value={field.state.value ?? ''}
               id="barcode"
               name="barcode"
+              placeholder="Barcode"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
           </div>

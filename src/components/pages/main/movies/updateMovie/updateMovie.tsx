@@ -1,3 +1,4 @@
+import { useParams } from '@tanstack/react-router'
 import ErrorText from '../../../../global/alerts/errorText'
 import LoadingText from '../../../../global/alerts/loadingText'
 import Heading from '../../../../global/text/heading'
@@ -5,7 +6,8 @@ import { useMovie } from '../movie/useMovie'
 import MovieForm from '../../../../global/forms/movieForm/movieForm'
 
 const UpdateMovie = () => {
-  const { data, isLoading, isError, id } = useMovie()
+  const { id } = useParams({ from: '/_main/movies/update-movie/$id' })
+  const { data, isLoading, isError } = useMovie(id)
 
   if (isLoading) {
     return <LoadingText />
