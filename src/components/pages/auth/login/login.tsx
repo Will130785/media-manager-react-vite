@@ -5,6 +5,7 @@ import EmailInput from '../../../global/inputs/emailInput'
 import PasswordInput from '../../../global/inputs/passwordInput'
 import { useLogin } from './useLogin'
 import Button from '../../../global/buttons/button'
+import FormFieldAlert from '../../../global/alerts/FormFieldAlert'
 
 const Login = () => {
   const { loginForm } = useLogin()
@@ -26,7 +27,7 @@ const Login = () => {
             onChange: ({ value }) => (!value ? 'Email is required' : undefined),
           }}
           children={(field) => (
-            <div>
+            <div className="my-6">
               <EmailInput
                 value={field.state.value ?? ''}
                 id="email"
@@ -34,6 +35,7 @@ const Login = () => {
                 placeholder="Email"
                 onChangeHandler={(e) => field.handleChange(e.target.value)}
               />
+              <FormFieldAlert field={field} />
             </div>
           )}
         />
@@ -44,7 +46,7 @@ const Login = () => {
               !value ? 'Password is required' : undefined,
           }}
           children={(field) => (
-            <div>
+            <div className="my-6">
               <PasswordInput
                 value={field.state.value ?? ''}
                 id="password"
@@ -52,21 +54,28 @@ const Login = () => {
                 placeholder="Password"
                 onChangeHandler={(e) => field.handleChange(e.target.value)}
               />
+              <FormFieldAlert field={field} />
             </div>
           )}
         />
         <loginForm.Subscribe
           selector={(state) => [state.isSubmitting, state.canSubmit]}
           children={([isSubmitting, canSubmit]) => (
-            <Button type="submit" disabled={!canSubmit}>
-              {isSubmitting ? '...' : 'Login'}
-            </Button>
+            <div className="my-6">
+              <Button type="submit" disabled={!canSubmit}>
+                {isSubmitting ? '...' : 'Login'}
+              </Button>
+            </div>
           )}
         />
       </form>
       <div>
         <Paragraph>
-          Or <Link to={'/register'}>click here</Link> to register
+          Or{' '}
+          <Link className="text-amber-400" to={'/register'}>
+            click here
+          </Link>{' '}
+          to register
         </Paragraph>
       </div>
     </div>

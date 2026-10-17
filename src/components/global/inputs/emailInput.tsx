@@ -17,6 +17,7 @@ const EmailInput = ({
 }: IEmailInputProps) => {
   return (
     <input
+      className="p-2 w-full"
       type="email"
       value={value}
       id={id}

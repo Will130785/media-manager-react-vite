@@ -8,7 +8,11 @@ interface IButtonProps {
 
 const Button = ({ type, disabled, children }: IButtonProps) => {
   return (
-    <button type={type} disabled={disabled}>
+    <button
+      className="p-2 bg-amber-400 hover:bg-amber-500 text-white w-full rounded-full cursor-pointer"
+      type={type}
+      disabled={disabled}
+    >
       {children}
     </button>
   )

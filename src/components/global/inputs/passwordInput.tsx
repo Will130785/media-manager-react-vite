@@ -17,6 +17,7 @@ const PasswordInput = ({
 }: IPasswordInputProps) => {
   return (
     <input
+      className="p-2 w-full"
       type="password"
       value={value}
       id={id}
