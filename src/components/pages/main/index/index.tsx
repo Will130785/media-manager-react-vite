@@ -1,17 +1,22 @@
-import { Link } from '@tanstack/react-router'
-import Heading from '../../../global/text/heading'
+import { BookText, Clapperboard, Gamepad2, Music } from 'lucide-react'
+import MediaTypeLink from './mediaTypeLink'
 
 const Index = () => {
   return (
     <div>
-      <div>
-        <Heading type="h1">Media Manager</Heading>
-      </div>
       <div className="flex flex-col">
-        <Link to={'/music'}>Music</Link>
-        <Link to={'/movies'}>Movies</Link>
-        <Link to={'/games'}>Games</Link>
-        <Link to={'/books'}>Books</Link>
+        <MediaTypeLink to="/music">
+          <Music />
+        </MediaTypeLink>
+        <MediaTypeLink to="/movies">
+          <Clapperboard />
+        </MediaTypeLink>
+        <MediaTypeLink to="/games">
+          <Gamepad2 />
+        </MediaTypeLink>
+        <MediaTypeLink to="/books">
+          <BookText />
+        </MediaTypeLink>
       </div>
     </div>
   )

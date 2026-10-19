@@ -7,8 +7,9 @@ const MainLayout = () => {
   return (
     <div>
       <TopBar />
-      <p>Main</p>
-      <Outlet />
+      <div className="p-4">
+        <Outlet />
+      </div>
     </div>
   )
 }

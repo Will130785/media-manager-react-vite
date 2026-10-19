@@ -6,6 +6,7 @@ import EmailInput from '../../../global/inputs/emailInput'
 import PasswordInput from '../../../global/inputs/passwordInput'
 import { useRegister } from './useRegister'
 import Button from '../../../global/buttons/button'
+import FormFieldAlert from '../../../global/alerts/FormFieldAlert'
 
 const Register = () => {
   const { registerForm } = useRegister()
@@ -28,7 +29,7 @@ const Register = () => {
               !value ? 'First name is required' : undefined,
           }}
           children={(field) => (
-            <div>
+            <div className="my-6">
               <TextInput
                 value={field.state.value ?? ''}
                 id="firstName"
@@ -36,6 +37,7 @@ const Register = () => {
                 placeholder="First Name"
                 onChangeHandler={(e) => field.handleChange(e.target.value)}
               />
+              <FormFieldAlert field={field} />
             </div>
           )}
         />
@@ -46,7 +48,7 @@ const Register = () => {
               !value ? 'Last name is required' : undefined,
           }}
           children={(field) => (
-            <div>
+            <div className="my-6">
               <TextInput
                 value={field.state.value ?? ''}
                 id="lastName"
@@ -54,6 +56,7 @@ const Register = () => {
                 placeholder="Last Name"
                 onChangeHandler={(e) => field.handleChange(e.target.value)}
               />
+              <FormFieldAlert field={field} />
             </div>
           )}
         />
@@ -63,7 +66,7 @@ const Register = () => {
             onChange: ({ value }) => (!value ? 'Email is required' : undefined),
           }}
           children={(field) => (
-            <div>
+            <div className="my-6">
               <EmailInput
                 value={field.state.value ?? ''}
                 id="email"
@@ -71,6 +74,7 @@ const Register = () => {
                 placeholder="Email"
                 onChangeHandler={(e) => field.handleChange(e.target.value)}
               />
+              <FormFieldAlert field={field} />
             </div>
           )}
         />
@@ -81,7 +85,7 @@ const Register = () => {
               !value ? 'Password is required' : undefined,
           }}
           children={(field) => (
-            <div>
+            <div className="my-6">
               <PasswordInput
                 value={field.state.value ?? ''}
                 id="password"
@@ -89,6 +93,7 @@ const Register = () => {
                 placeholder="Password (Min 12 Characters)"
                 onChangeHandler={(e) => field.handleChange(e.target.value)}
               />
+              <FormFieldAlert field={field} />
             </div>
           )}
         />
@@ -99,7 +104,7 @@ const Register = () => {
               !value ? 'Password is required' : undefined,
           }}
           children={(field) => (
-            <div>
+            <div className="my-6">
               <PasswordInput
                 value={field.state.value ?? ''}
                 id="passwordConfirm"
@@ -107,21 +112,28 @@ const Register = () => {
                 placeholder="Confirm Password"
                 onChangeHandler={(e) => field.handleChange(e.target.value)}
               />
+              <FormFieldAlert field={field} />
             </div>
           )}
         />
         <registerForm.Subscribe
           selector={(state) => [state.isSubmitting, state.canSubmit]}
           children={([isSubmitting, canSubmit]) => (
-            <Button type="submit" disabled={!canSubmit}>
-              {isSubmitting ? '...' : 'Register'}
-            </Button>
+            <div className="my-6">
+              <Button type="submit" disabled={!canSubmit}>
+                {isSubmitting ? '...' : 'Register'}
+              </Button>
+            </div>
           )}
         />
       </form>
       <div>
         <Paragraph>
-          Or <Link to={'/login'}>click here</Link> to login
+          Or{' '}
+          <Link className="text-amber-400" to={'/login'}>
+            click here
+          </Link>{' '}
+          to login
         </Paragraph>
       </div>
     </div>

@@ -17,6 +17,7 @@ const TextInput = ({
 }: ITextInputProps) => {
   return (
     <input
+      className="p-2 w-full focus:outline-amber-400 border-[0.1px] rounded-lg"
       type="text"
       value={value}
       id={id}
