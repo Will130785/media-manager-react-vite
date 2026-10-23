@@ -5,16 +5,16 @@ const Index = () => {
   return (
     <div>
       <div className="flex flex-col">
-        <MediaTypeLink to="/music">
+        <MediaTypeLink to="/music" title="Music">
           <Music />
         </MediaTypeLink>
-        <MediaTypeLink to="/movies">
+        <MediaTypeLink to="/movies" title="Movie">
           <Clapperboard />
         </MediaTypeLink>
-        <MediaTypeLink to="/games">
+        <MediaTypeLink to="/games" title="Game">
           <Gamepad2 />
         </MediaTypeLink>
-        <MediaTypeLink to="/books">
+        <MediaTypeLink to="/books" title="Book">
           <BookText />
         </MediaTypeLink>
       </div>

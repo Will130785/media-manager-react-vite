@@ -3,6 +3,7 @@ import ErrorText from '../../../../global/alerts/errorText'
 import LoadingText from '../../../../global/alerts/loadingText'
 import Heading from '../../../../global/text/heading'
 import { useMusicItem } from './useMusicItem'
+import Actions from '../../../../global/media/actions'
 
 const MusicItem = () => {
   const { id } = useParams({ from: '/_main/music/music-item/$id' })
@@ -21,15 +22,11 @@ const MusicItem = () => {
       <div>
         <Heading type="h1">{data?.title}</Heading>
       </div>
-      <div>
-        <Link
-          to={'/music/update-music-item/$id'}
-          params={{ id: data?.id ?? '' }}
-        >
-          Edit
-        </Link>
-        <button onClick={handleDeleteMusicItem}>Delete</button>
-      </div>
+      <Actions
+        editUrl="/music/update-music-item/$id"
+        id={data?.id ?? ''}
+        deleteHandler={handleDeleteMusicItem}
+      />
     </div>
   )
 }

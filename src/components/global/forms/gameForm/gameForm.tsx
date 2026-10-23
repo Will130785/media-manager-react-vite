@@ -4,6 +4,7 @@ import Button from '../../../global/buttons/button'
 import DateInput from '../../inputs/dateInput'
 import type { IGame } from '../../../../types'
 import Paragraph from '../../text/paragraph'
+import FormFieldAlert from '../../alerts/FormFieldAlert'
 
 interface IGameFormProps {
   gameData?: IGame
@@ -27,7 +28,7 @@ const GameForm = ({ gameData, id }: IGameFormProps) => {
             !value ? 'Developer is required' : undefined,
         }}
         children={(field) => (
-          <div>
+          <div className="my-6">
             <TextInput
               value={field.state.value ?? ''}
               id="developer"
@@ -35,6 +36,7 @@ const GameForm = ({ gameData, id }: IGameFormProps) => {
               placeholder="Developer"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
+            <FormFieldAlert field={field} />
           </div>
         )}
       />
@@ -44,7 +46,7 @@ const GameForm = ({ gameData, id }: IGameFormProps) => {
           onChange: ({ value }) => (!value ? 'Title is required' : undefined),
         }}
         children={(field) => (
-          <div>
+          <div className="my-6">
             <TextInput
               value={field.state.value ?? ''}
               id="title"
@@ -52,6 +54,7 @@ const GameForm = ({ gameData, id }: IGameFormProps) => {
               placeholder="Title"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
+            <FormFieldAlert field={field} />
           </div>
         )}
       />
@@ -62,7 +65,7 @@ const GameForm = ({ gameData, id }: IGameFormProps) => {
             !value ? 'Platform is required' : undefined,
         }}
         children={(field) => (
-          <div>
+          <div className="my-6">
             <TextInput
               value={field.state.value ?? ''}
               id="platform"
@@ -70,6 +73,7 @@ const GameForm = ({ gameData, id }: IGameFormProps) => {
               placeholder="Platform"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
+            <FormFieldAlert field={field} />
           </div>
         )}
       />
@@ -80,7 +84,7 @@ const GameForm = ({ gameData, id }: IGameFormProps) => {
             !value ? 'Date of release is required' : undefined,
         }}
         children={(field) => (
-          <div>
+          <div className="my-6">
             <DateInput
               value={field.state.value ?? ''}
               id="dateOfRelease"
@@ -88,6 +92,7 @@ const GameForm = ({ gameData, id }: IGameFormProps) => {
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
             <Paragraph>Date of Release</Paragraph>
+            <FormFieldAlert field={field} />
           </div>
         )}
       />
@@ -97,7 +102,7 @@ const GameForm = ({ gameData, id }: IGameFormProps) => {
           onChange: ({ value }) => (!value ? 'Barcode is required' : undefined),
         }}
         children={(field) => (
-          <div>
+          <div className="my-6">
             <TextInput
               value={field.state.value ?? ''}
               id="barcode"
@@ -105,15 +110,18 @@ const GameForm = ({ gameData, id }: IGameFormProps) => {
               placeholder="Barcode"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
+            <FormFieldAlert field={field} />
           </div>
         )}
       />
       <gameForm.Subscribe
         selector={(state) => [state.isSubmitting, state.canSubmit]}
         children={([isSubmitting, canSubmit]) => (
-          <Button type="submit" disabled={!canSubmit}>
-            {isSubmitting ? '...' : id ? 'Update Game' : 'Create Game'}
-          </Button>
+          <div className="my-6">
+            <Button type="submit" disabled={!canSubmit}>
+              {isSubmitting ? '...' : id ? 'Update Game' : 'Create Game'}
+            </Button>
+          </div>
         )}
       />
     </form>

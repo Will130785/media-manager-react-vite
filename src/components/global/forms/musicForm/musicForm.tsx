@@ -4,6 +4,7 @@ import Button from '../../../global/buttons/button'
 import DateInput from '../../inputs/dateInput'
 import type { IMusic } from '../../../../types'
 import Paragraph from '../../text/paragraph'
+import FormFieldAlert from '../../alerts/FormFieldAlert'
 
 interface IMusicFormProps {
   musicData?: IMusic
@@ -26,7 +27,7 @@ const MusicForm = ({ musicData, id }: IMusicFormProps) => {
           onChange: ({ value }) => (!value ? 'Artist is required' : undefined),
         }}
         children={(field) => (
-          <div>
+          <div className="my-6">
             <TextInput
               value={field.state.value ?? ''}
               id="artist"
@@ -34,6 +35,7 @@ const MusicForm = ({ musicData, id }: IMusicFormProps) => {
               placeholder="Artist"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
+            <FormFieldAlert field={field} />
           </div>
         )}
       />
@@ -43,7 +45,7 @@ const MusicForm = ({ musicData, id }: IMusicFormProps) => {
           onChange: ({ value }) => (!value ? 'Title is required' : undefined),
         }}
         children={(field) => (
-          <div>
+          <div className="my-6">
             <TextInput
               value={field.state.value ?? ''}
               id="title"
@@ -51,6 +53,7 @@ const MusicForm = ({ musicData, id }: IMusicFormProps) => {
               placeholder="Title"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
+            <FormFieldAlert field={field} />
           </div>
         )}
       />
@@ -60,7 +63,7 @@ const MusicForm = ({ musicData, id }: IMusicFormProps) => {
           onChange: ({ value }) => (!value ? 'Type is required' : undefined),
         }}
         children={(field) => (
-          <div>
+          <div className="my-6">
             <TextInput
               value={field.state.value ?? ''}
               id="type"
@@ -68,6 +71,7 @@ const MusicForm = ({ musicData, id }: IMusicFormProps) => {
               placeholder="Type"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
+            <FormFieldAlert field={field} />
           </div>
         )}
       />
@@ -78,7 +82,7 @@ const MusicForm = ({ musicData, id }: IMusicFormProps) => {
             !value ? 'Date of release is required' : undefined,
         }}
         children={(field) => (
-          <div>
+          <div className="my-6">
             <DateInput
               value={field.state.value ?? ''}
               id="dateOfRelease"
@@ -86,6 +90,7 @@ const MusicForm = ({ musicData, id }: IMusicFormProps) => {
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
             <Paragraph>Date of Release</Paragraph>
+            <FormFieldAlert field={field} />
           </div>
         )}
       />
@@ -95,7 +100,7 @@ const MusicForm = ({ musicData, id }: IMusicFormProps) => {
           onChange: ({ value }) => (!value ? 'Barcode is required' : undefined),
         }}
         children={(field) => (
-          <div>
+          <div className="my-6">
             <TextInput
               value={field.state.value ?? ''}
               id="barcode"
@@ -103,19 +108,22 @@ const MusicForm = ({ musicData, id }: IMusicFormProps) => {
               placeholder="Barcode"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
+            <FormFieldAlert field={field} />
           </div>
         )}
       />
       <musicForm.Subscribe
         selector={(state) => [state.isSubmitting, state.canSubmit]}
         children={([isSubmitting, canSubmit]) => (
-          <Button type="submit" disabled={!canSubmit}>
-            {isSubmitting
-              ? '...'
-              : id
-                ? 'Update Music Item'
-                : 'Create Music Item'}
-          </Button>
+          <div className="my-6">
+            <Button type="submit" disabled={!canSubmit}>
+              {isSubmitting
+                ? '...'
+                : id
+                  ? 'Update Music Item'
+                  : 'Create Music Item'}
+            </Button>
+          </div>
         )}
       />
     </form>

@@ -4,6 +4,7 @@ import Button from '../../../global/buttons/button'
 import DateInput from '../../inputs/dateInput'
 import type { IMovie } from '../../../../types'
 import Paragraph from '../../text/paragraph'
+import FormFieldAlert from '../../alerts/FormFieldAlert'
 
 interface IMovieFormProps {
   movieData?: IMovie
@@ -27,7 +28,7 @@ const MovieForm = ({ movieData, id }: IMovieFormProps) => {
             !value ? 'Director is required' : undefined,
         }}
         children={(field) => (
-          <div>
+          <div className="my-6">
             <TextInput
               value={field.state.value ?? ''}
               id="director"
@@ -35,6 +36,7 @@ const MovieForm = ({ movieData, id }: IMovieFormProps) => {
               placeholder="Director"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
+            <FormFieldAlert field={field} />
           </div>
         )}
       />
@@ -44,7 +46,7 @@ const MovieForm = ({ movieData, id }: IMovieFormProps) => {
           onChange: ({ value }) => (!value ? 'Title is required' : undefined),
         }}
         children={(field) => (
-          <div>
+          <div className="my-6">
             <TextInput
               value={field.state.value ?? ''}
               id="title"
@@ -52,6 +54,7 @@ const MovieForm = ({ movieData, id }: IMovieFormProps) => {
               placeholder="Title"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
+            <FormFieldAlert field={field} />
           </div>
         )}
       />
@@ -61,7 +64,7 @@ const MovieForm = ({ movieData, id }: IMovieFormProps) => {
           onChange: ({ value }) => (!value ? 'Type is required' : undefined),
         }}
         children={(field) => (
-          <div>
+          <div className="my-6">
             <TextInput
               value={field.state.value ?? ''}
               id="type"
@@ -69,6 +72,7 @@ const MovieForm = ({ movieData, id }: IMovieFormProps) => {
               placeholder="Type"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
+            <FormFieldAlert field={field} />
           </div>
         )}
       />
@@ -79,7 +83,7 @@ const MovieForm = ({ movieData, id }: IMovieFormProps) => {
             !value ? 'Date of release is required' : undefined,
         }}
         children={(field) => (
-          <div>
+          <div className="my-6">
             <DateInput
               value={field.state.value ?? ''}
               id="dateOfRelease"
@@ -87,6 +91,7 @@ const MovieForm = ({ movieData, id }: IMovieFormProps) => {
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
             <Paragraph>Date of Release</Paragraph>
+            <FormFieldAlert field={field} />
           </div>
         )}
       />
@@ -96,7 +101,7 @@ const MovieForm = ({ movieData, id }: IMovieFormProps) => {
           onChange: ({ value }) => (!value ? 'Barcode is required' : undefined),
         }}
         children={(field) => (
-          <div>
+          <div className="my-6">
             <TextInput
               value={field.state.value ?? ''}
               id="barcode"
@@ -104,15 +109,18 @@ const MovieForm = ({ movieData, id }: IMovieFormProps) => {
               placeholder="Barcode"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
+            <FormFieldAlert field={field} />
           </div>
         )}
       />
       <movieForm.Subscribe
         selector={(state) => [state.isSubmitting, state.canSubmit]}
         children={([isSubmitting, canSubmit]) => (
-          <Button type="submit" disabled={!canSubmit}>
-            {isSubmitting ? '...' : id ? 'Update Movie' : 'Create Movie'}
-          </Button>
+          <div className="my-6">
+            <Button type="submit" disabled={!canSubmit}>
+              {isSubmitting ? '...' : id ? 'Update Movie' : 'Create Movie'}
+            </Button>
+          </div>
         )}
       />
     </form>

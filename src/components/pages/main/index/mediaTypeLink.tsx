@@ -3,14 +3,16 @@ import type { ReactNode } from 'react'
 
 interface IMediaTypeLinkProps {
   to: '/music' | '/movies' | '/games' | '/books'
+  title: string
   children: ReactNode
 }
 
-const MediaTypeLink = ({ to, children }: IMediaTypeLinkProps) => {
+const MediaTypeLink = ({ to, title, children }: IMediaTypeLinkProps) => {
   return (
-    <div className="p-10 w-full border">
-      <Link to={to}>{children}</Link>
-    </div>
+    <Link to={to} className="p-10 w-full border flex gap-4">
+      {children}
+      <p>{title} Library</p>
+    </Link>
   )
 }
 

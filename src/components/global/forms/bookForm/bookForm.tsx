@@ -4,6 +4,7 @@ import Button from '../../../global/buttons/button'
 import DateInput from '../../inputs/dateInput'
 import type { IBook } from '../../../../types'
 import Paragraph from '../../text/paragraph'
+import FormFieldAlert from '../../alerts/FormFieldAlert'
 
 interface IBookFormProps {
   bookData?: IBook
@@ -26,7 +27,7 @@ const BookForm = ({ bookData, id }: IBookFormProps) => {
           onChange: ({ value }) => (!value ? 'Author is required' : undefined),
         }}
         children={(field) => (
-          <div>
+          <div className="my-6">
             <TextInput
               value={field.state.value ?? ''}
               id="author"
@@ -34,6 +35,7 @@ const BookForm = ({ bookData, id }: IBookFormProps) => {
               placeholder="Author"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
+            <FormFieldAlert field={field} />
           </div>
         )}
       />
@@ -43,7 +45,7 @@ const BookForm = ({ bookData, id }: IBookFormProps) => {
           onChange: ({ value }) => (!value ? 'Title is required' : undefined),
         }}
         children={(field) => (
-          <div>
+          <div className="my-6">
             <TextInput
               value={field.state.value ?? ''}
               id="title"
@@ -51,6 +53,7 @@ const BookForm = ({ bookData, id }: IBookFormProps) => {
               placeholder="Title"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
+            <FormFieldAlert field={field} />
           </div>
         )}
       />
@@ -61,7 +64,7 @@ const BookForm = ({ bookData, id }: IBookFormProps) => {
             !value ? 'Date of release is required' : undefined,
         }}
         children={(field) => (
-          <div>
+          <div className="my-6">
             <DateInput
               value={''}
               id="dateOfRelease"
@@ -69,6 +72,7 @@ const BookForm = ({ bookData, id }: IBookFormProps) => {
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
             <Paragraph>Date of Release</Paragraph>
+            <FormFieldAlert field={field} />
           </div>
         )}
       />
@@ -78,7 +82,7 @@ const BookForm = ({ bookData, id }: IBookFormProps) => {
           onChange: ({ value }) => (!value ? 'Barcode is required' : undefined),
         }}
         children={(field) => (
-          <div>
+          <div className="my-6">
             <TextInput
               value={field.state.value ?? ''}
               id="barcode"
@@ -86,15 +90,18 @@ const BookForm = ({ bookData, id }: IBookFormProps) => {
               placeholder="Barcode"
               onChangeHandler={(e) => field.handleChange(e.target.value)}
             />
+            <FormFieldAlert field={field} />
           </div>
         )}
       />
       <bookForm.Subscribe
         selector={(state) => [state.isSubmitting, state.canSubmit]}
         children={([isSubmitting, canSubmit]) => (
-          <Button type="submit" disabled={!canSubmit}>
-            {isSubmitting ? '...' : id ? 'Update Book' : 'Create Book'}
-          </Button>
+          <div className="my-6">
+            <Button type="submit" disabled={!canSubmit}>
+              {isSubmitting ? '...' : id ? 'Update Book' : 'Create Book'}
+            </Button>
+          </div>
         )}
       />
     </form>
