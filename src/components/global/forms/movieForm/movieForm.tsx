@@ -5,6 +5,8 @@ import DateInput from '../../inputs/dateInput'
 import type { IMovie } from '../../../../types'
 import Paragraph from '../../text/paragraph'
 import FormFieldAlert from '../../alerts/FormFieldAlert'
+import SelectInput from '../../inputs/selectInput'
+import { MOVIE_TYPE_OPTIONS } from '../../../../constants'
 
 interface IMovieFormProps {
   movieData?: IMovie
@@ -65,12 +67,13 @@ const MovieForm = ({ movieData, id }: IMovieFormProps) => {
         }}
         children={(field) => (
           <div className="my-6">
-            <TextInput
+            <SelectInput
               value={field.state.value ?? ''}
               id="type"
               name="type"
               placeholder="Type"
-              onChangeHandler={(e) => field.handleChange(e.target.value)}
+              onSelectHandler={(e) => field.handleChange(e.target.value)}
+              options={MOVIE_TYPE_OPTIONS}
             />
             <FormFieldAlert field={field} />
           </div>

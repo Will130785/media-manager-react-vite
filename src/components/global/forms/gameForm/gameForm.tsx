@@ -5,6 +5,8 @@ import DateInput from '../../inputs/dateInput'
 import type { IGame } from '../../../../types'
 import Paragraph from '../../text/paragraph'
 import FormFieldAlert from '../../alerts/FormFieldAlert'
+import SelectInput from '../../inputs/selectInput'
+import { GAME_PLATFORM_OPTIONS } from '../../../../constants'
 
 interface IGameFormProps {
   gameData?: IGame
@@ -66,12 +68,13 @@ const GameForm = ({ gameData, id }: IGameFormProps) => {
         }}
         children={(field) => (
           <div className="my-6">
-            <TextInput
+            <SelectInput
               value={field.state.value ?? ''}
               id="platform"
               name="platform"
               placeholder="Platform"
-              onChangeHandler={(e) => field.handleChange(e.target.value)}
+              onSelectHandler={(e) => field.handleChange(e.target.value)}
+              options={GAME_PLATFORM_OPTIONS}
             />
             <FormFieldAlert field={field} />
           </div>

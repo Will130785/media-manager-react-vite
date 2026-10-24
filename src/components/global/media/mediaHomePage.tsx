@@ -47,14 +47,14 @@ const MediaHomePage = ({ title, mediaItems }: IMediaHomePage) => {
       <div className="flex gap-2 items-center my-6">
         <Heading type="h1">{title} Library</Heading>
         <Link to={getCreateItemLink(title)}>
-          <CirclePlus />
+          <CirclePlus className="text-amber-400" />
         </Link>
       </div>
       <div className="flex flex-col gap-2">
         {mediaItems && mediaItems.length ? (
           mediaItems.map((mediaItem) => (
             <Link
-              className="border rounded-xl p-4 flex justify-between gap-2"
+              className="border rounded-xl p-4 flex justify-between gap-2 hover:bg-slate-200"
               to={getItemLink(title)}
               params={{ id: mediaItem.id }}
               key={mediaItem.id}

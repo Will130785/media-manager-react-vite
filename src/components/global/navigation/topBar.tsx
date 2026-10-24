@@ -7,7 +7,7 @@ const TopBar = () => {
   const { handleLogout } = useLogout()
 
   return (
-    <nav className="h-20 p-4 flex justify-between items-center bg-amber-400">
+    <nav className="h-16 p-4 flex justify-between items-center bg-amber-400">
       <Link to={'/'}>
         <Home className="text-white" />
       </Link>

@@ -6,10 +6,14 @@ import type {
 } from '../types'
 const { VITE_API_BASE } = import.meta.env
 
-export const getMusicByUser = async () => {
+export const getMusicByUser = async (query: { query: { artist: string } }) => {
   const res = await fetch(`${VITE_API_BASE}/get-music-by-user`, {
-    method: 'GET',
+    method: 'POST',
     credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
   })
 
   if (!res.ok) {
@@ -82,10 +86,14 @@ export const deleteMusicItem = async (id: string) => {
   return parsedRes
 }
 
-export const getMoviesByUser = async () => {
+export const getMoviesByUser = async (query: { query: { movie: string } }) => {
   const res = await fetch(`${VITE_API_BASE}/get-movies-by-user`, {
-    method: 'GET',
+    method: 'POST',
     credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
   })
 
   if (!res.ok) {
@@ -158,10 +166,14 @@ export const deleteMovieItem = async (id: string) => {
   return parsedRes
 }
 
-export const getGamesByUser = async () => {
+export const getGamesByUser = async (query: { query: { game: string } }) => {
   const res = await fetch(`${VITE_API_BASE}/get-games-by-user`, {
-    method: 'GET',
+    method: 'POST',
     credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
   })
 
   if (!res.ok) {
@@ -231,14 +243,18 @@ export const deleteGameItem = async (id: string) => {
   return parsedRes
 }
 
-export const getBooksByUser = async () => {
+export const getBooksByUser = async (query: { query: { book: string } }) => {
   const res = await fetch(`${VITE_API_BASE}/get-books-by-user`, {
-    method: 'GET',
+    method: 'POST',
     credentials: 'include',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
   })
 
   if (!res.ok) {
-    throw new Error('Error getting book by user')
+    throw new Error('Error getting books by user')
   }
   const parsedRes = await res.json()
   return parsedRes

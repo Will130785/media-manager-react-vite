@@ -5,6 +5,8 @@ import DateInput from '../../inputs/dateInput'
 import type { IMusic } from '../../../../types'
 import Paragraph from '../../text/paragraph'
 import FormFieldAlert from '../../alerts/FormFieldAlert'
+import SelectInput from '../../inputs/selectInput'
+import { MUSIC_TYPE_OPTIONS } from '../../../../constants'
 
 interface IMusicFormProps {
   musicData?: IMusic
@@ -64,12 +66,13 @@ const MusicForm = ({ musicData, id }: IMusicFormProps) => {
         }}
         children={(field) => (
           <div className="my-6">
-            <TextInput
+            <SelectInput
               value={field.state.value ?? ''}
               id="type"
               name="type"
               placeholder="Type"
-              onChangeHandler={(e) => field.handleChange(e.target.value)}
+              onSelectHandler={(e) => field.handleChange(e.target.value)}
+              options={MUSIC_TYPE_OPTIONS}
             />
             <FormFieldAlert field={field} />
           </div>

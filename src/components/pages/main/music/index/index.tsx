@@ -5,7 +5,7 @@ import MediaHomePage from '../../../../global/media/mediaHomePage'
 import TextInput from '../../../../global/inputs/textInput'
 
 const Index = () => {
-  const { data, isLoading, isError } = useMusic()
+  const { data, isLoading, isError, artistSearch, setArtistSearch } = useMusic()
 
   if (isLoading) {
     return <LoadingText />
@@ -21,9 +21,9 @@ const Index = () => {
         <TextInput
           id="search"
           name="search"
-          value=""
+          value={artistSearch}
           placeholder="Search by artist"
-          onChangeHandler={() => {}}
+          onChangeHandler={(e) => setArtistSearch(e.target.value)}
         />
       </div>
       <MediaHomePage mediaItems={data} title="Music" />
